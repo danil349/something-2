@@ -1,0 +1,58 @@
+.card {
+    display: inline-block;
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.35;
+}
+.card:hover {
+    transform: scale(1,1);
+}
+.card:active {
+    background: lightblue;
+    transform: scale(1,2);
+}
+.card::after {
+    content: "123";
+}
+.card::before {
+    content: "123";
+}
+.card.animated {
+ background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+.card.animated::before {
+    content: "123";
+    display: inline-block;
+    animation: float 1.5s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0);}
+    50%      { transform: translateY(-8px);}
+}
+@keyframes spin {
+    from{ transform: rotate(0deg);}
+    to { transform: rotate(360deg);}
+}
+.card.spin::before {
+    content: "123";
+    display: inline-block;
+    animation: spin 2s linear infinite;
+}
+@keyframes glow {
+    0%, 100% {box-shadow: 0 0 5px #ff9a9e;}
+    50% {box-shadow: 0 0 25px #ff9a9e;}
+}
+.card.glow {
+    animation: glow 1.5s ease-in-out infinite;
+}
+@keyframes gradientMove {
+    0% {background-position: 0%;}
+    100% {background-position: 100%;}
+}
+.card.animated {
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4, #a1c4fd, #ff9a9e);
+    background-size: 300%;
+    animation: gradientMove 3s linear infinite;
+}
